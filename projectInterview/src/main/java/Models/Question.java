@@ -1,8 +1,17 @@
 package Models;
 
-public class Question {
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
-	String question;
-	String correctAnswer;
+@Entity
+public class Question extends GenericEntity {
+
+	private static final long serialVersionUID = 1L;
+	
+	private String question;
+	private String answer;
+	
+	@ManyToOne
+	private Attribute attribute;
 	
 }

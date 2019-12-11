@@ -2,9 +2,9 @@ package Controllers;
 
 import javax.ws.rs.Path;
 
-@Path("question")
-public class QuestionController {
+@Path("user")
+public class UserController {
+	
+	
 
-	
-	
 }

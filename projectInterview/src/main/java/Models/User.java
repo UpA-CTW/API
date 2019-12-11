@@ -1,12 +1,19 @@
 package Models;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@NamedQuery(name=User.GET_ALL_USERS_QUERY, query="SELECT u FROM User u")
+@NamedQuery(name=User.GET_ALL_USERS_ID_QUERY, query="SELECT u FROM User.id u")
+
 public class User extends GenericEntity {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public static final String GET_ALL_USERS_QUERY = "User.getAllUser";
+	public static final String GET_ALL_USERS_ID_QUERY = "User.getAllUsersId";
 	
 	 	@NotBlank(message = "Name is mandatory")
 	    private String name;

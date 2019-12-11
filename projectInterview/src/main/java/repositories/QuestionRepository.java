@@ -1,6 +1,6 @@
-package Repositories;
+package repositories;
 
-import Models.Question;
+import models.Question;
 
 public class QuestionRepository extends EntityRepository<Question> {
 	

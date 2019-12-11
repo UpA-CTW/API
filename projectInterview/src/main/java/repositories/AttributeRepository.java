@@ -1,6 +1,6 @@
-package Repositories;
+package repositories;
 
-import Models.Attribute;
+import models.Attribute;
 
 
 public class AttributeRepository extends EntityRepository<Attribute> {

@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class GenericEntity implements Serializable {
+public abstract class GenericEntity implements Serializable {
 
 private static final long serialVersionUID = 1L;
 	

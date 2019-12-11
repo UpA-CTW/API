@@ -1,6 +1,6 @@
-package Repositories;
+package repositories;
 
-import Models.User;
+import models.User;
 
 public class UserRepository extends EntityRepository<User>{
 

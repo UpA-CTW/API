@@ -1,11 +1,11 @@
-package Repositories;
+package repositories;
 
 import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import Models.GenericEntity;
+import models.GenericEntity;
 
 public abstract class EntityRepository <T extends GenericEntity>{
 
@@ -22,7 +22,7 @@ public abstract class EntityRepository <T extends GenericEntity>{
 		return entityManager.merge(entity);
 	}
 	
-	public Collection<T> getAllEntity() {
+	public Collection<T> getAllEntities() {
 		return entityManager.createNamedQuery(getAllEntityQueryName(),getEntityClass()).getResultList();
 	}
 	
@@ -30,11 +30,11 @@ public abstract class EntityRepository <T extends GenericEntity>{
 		return entityManager.find(getEntityClass(), id);
 	}
 	
-	public T modID(T editedEntity) {
+	public T editEntity(T editedEntity) {
 		return entityManager.merge(editedEntity);
 	}
 	
-	public void remID(long id) {
+	public void removeEntity(long id) {
 		T entity = entityManager.find(getEntityClass(), id);
 		entityManager.remove(entity);
 	}

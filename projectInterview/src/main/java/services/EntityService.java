@@ -1,31 +1,42 @@
-package Services;
+package services;
 
 import java.util.Collection;
 
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+
+import models.GenericEntity;
+import repositories.EntityRepository;
+
 public abstract class EntityService<T extends EntityRepository<E>, E extends GenericEntity> {
+	
+	@Inject
+	 protected T repository;
 
+	@Transactional
 	public Collection<E> getAll() {
-		// TODO Auto-generated method stub
+		repository.getAllEntities();
 		return null;
 	}
 
+	@Transactional
 	public E getOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.consultEntity(id);
 	}
 
+	@Transactional
 	public E create(E entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.createEntity(entity);
 	}
 
+	@Transactional
 	public E edit(long id, E entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.editEntity(entity);
 	}
 
+	@Transactional
 	public String del(long id) {
-		// TODO Auto-generated method stub
+		repository.removeEntity(id);
 		return null;
 	}
 

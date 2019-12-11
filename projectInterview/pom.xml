@@ -18,6 +18,9 @@
         <payara-micro-maven-plugin.version>1.0.6</payara-micro-maven-plugin.version>
         <payara.version>5.193</payara.version>
     </properties>
+    
+    
+    
 
     <dependencies>
         <dependency>

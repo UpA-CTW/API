@@ -6,7 +6,8 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @NamedQuery(name=User.GET_ALL_USERS_QUERY, query="SELECT u FROM User u")
-@NamedQuery(name=User.GET_ALL_USERS_ID_QUERY, query="SELECT u FROM User.id u")
+@NamedQuery(name=User.GET_ALL_USERS_ID_QUERY, query="SELECT u.id FROM User u")
+@NamedQuery(name=User.GET_USER_BY_NAME_QUERY, query="SELECT u FROM User u WHERE u.name LIKE %name%")
 
 public class User extends GenericEntity {
 	
@@ -14,6 +15,7 @@ public class User extends GenericEntity {
 	
 	public static final String GET_ALL_USERS_QUERY = "User.getAllUser";
 	public static final String GET_ALL_USERS_ID_QUERY = "User.getAllUsersId";
+	public static final String GET_USER_BY_NAME_QUERY = "User.getUserByName";
 	
 	 	@NotBlank(message = "Name is mandatory")
 	    private String name;
@@ -24,14 +26,18 @@ public class User extends GenericEntity {
 	    @NotBlank(message = "Password is mandatory")
 	    private String password;
 	    
+	    @NotBlank(message = "Role is mandatory")
+	    private String role;
+	    
 	    public User() {
 	    	
 	    }
 	    
-	    public User (String name, String email, String password) {
+	    public User (String name, String email, String password, String role) {
 	    	this.name = name;
 	    	this.email = email;
 	    	this.password = password;
+	    	this.role = role;
 	    }
 
 		public String getName() {

@@ -7,7 +7,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY, query="SELECT q FROM Question q")
-@NamedQuery(name=Question.GET_ALL_QUESTIONS_ID_QUERY, query="SELECT q FROM Question.id q")
+@NamedQuery(name=Question.GET_ALL_QUESTIONS_ID_QUERY, query="SELECT q.id FROM Question q")
+@NamedQuery(name=Question.GET_QUESTION_BY_NAME_QUERY, query="SELECT q FROM Question q WHERE q.name LIKE %name%")
 
 public class Question extends GenericEntity {
 
@@ -15,6 +16,8 @@ public class Question extends GenericEntity {
 	
 	public static final String GET_ALL_QUESTIONS_QUERY = "Question.getAllQuestions";
 	public static final String GET_ALL_QUESTIONS_ID_QUERY = "Question.getAllQuestionsId";
+	public static final String GET_QUESTION_BY_NAME_QUERY = "Question.getQuestionByName";
+
 	
 	@ManyToOne
 	private Attribute attribute;

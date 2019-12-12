@@ -6,7 +6,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name=Attribute.GET_ALL_ATTRIBUTES_QUERY, query="SELECT a FROM Attribute a")
-@NamedQuery(name=Attribute.GET_ALL_ATTRIBUTES_ID_QUERY, query="SELECT a FROM Attribute.id a")
+@NamedQuery(name=Attribute.GET_ALL_ATTRIBUTES_ID_QUERY, query="SELECT a.id FROM Attribute a")
 
 public class Attribute extends GenericEntity {
 	

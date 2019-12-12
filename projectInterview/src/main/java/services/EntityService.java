@@ -40,4 +40,9 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 		return null;
 	}
 
+	public E getOneByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

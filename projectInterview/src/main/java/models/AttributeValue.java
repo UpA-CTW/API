@@ -2,10 +2,13 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 @Entity
-@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_QUERY, query="SELECT av FROM AttributeValue av")
-@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_ID_QUERY, query="SELECT av.id FROM AttributeValue av")
+@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_QUERY, query="SELECT v FROM AttributeValue v")
+@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_ID_QUERY, query="SELECT v.id FROM AttributeValue v")
+
+@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY, query="SELECT v FROM AttributeValue v WHERE v.attribute = :attribute")
 
 public class AttributeValue extends GenericEntity{
 	
@@ -15,7 +18,14 @@ public class AttributeValue extends GenericEntity{
 	public static final String GET_ALL_ATTRIBUTEVALUE_QUERY = "AtributeValue.getAllAttributeValue";
 	public static final String GET_ALL_ATTRIBUTEVALUE_ID_QUERY = "AttributeValue.getAllAttributeValueId";
 	
+	public static final String GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY = "AttributeValue.getValueByAttribute";
+	
+	
 	private String value;
+	
+	@OneToMany
+	private Attribute attribute;
+	
 	
 	public AttributeValue() {
 		

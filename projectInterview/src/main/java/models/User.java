@@ -6,7 +6,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQuery(name=User.GET_ALL_USERS_QUERY, query="SELECT u FROM User u")
 @NamedQuery(name=User.GET_ALL_USERS_ID_QUERY, query="SELECT u.id FROM User u")
-@NamedQuery(name=User.GET_USER_BY_EMAIL_QUERY, query="SELECT u FROM User u WHERE u.email LIKE *:email*")
+@NamedQuery(name=User.GET_USER_BY_EMAIL_QUERY, query="SELECT u FROM User u WHERE u.email = :email")
 
 public class User extends GenericEntity {
 	
@@ -14,7 +14,7 @@ public class User extends GenericEntity {
 	
 	public static final String GET_ALL_USERS_QUERY = "User.getAllUser";
 	public static final String GET_ALL_USERS_ID_QUERY = "User.getAllUsersId";
-	public static final String GET_USER_BY_EMAIL_QUERY = "User.getUsersByEmail";
+	public static final String GET_USER_BY_EMAIL_QUERY = "User.getUserByEmail";
 	
 
 	    private String name; 

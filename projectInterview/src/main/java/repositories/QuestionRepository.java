@@ -1,8 +1,15 @@
 package repositories;
 
+
 import models.Question;
 
 public class QuestionRepository extends EntityRepository<Question> {
+	
+	
+	@Override
+	protected Class<Question> getEntityClass() {
+		return Question.class;
+	}
 	
 	@Override
 	protected  String getAllEntityQueryName() {
@@ -14,9 +21,7 @@ public class QuestionRepository extends EntityRepository<Question> {
 		return Question.GET_ALL_QUESTIONS_ID_QUERY;
 	}
 
-	@Override
-	protected Class<Question> getEntityClass() {
-		return Question.class;
-	}
+	
+
 
 }

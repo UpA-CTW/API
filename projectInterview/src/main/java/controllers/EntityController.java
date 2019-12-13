@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -37,7 +36,6 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 	}
 	
 	@GET
-	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<E> getAll () {
 		return service.getAll();
@@ -51,22 +49,23 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 	}
 	
 	@GET
+	@Path("1")
 	@Produces(MediaType.APPLICATION_JSON)
 	public E getOneByName(@QueryParam("name") String name) {
 		return service.getOneByName(name);
 	}
 	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public E post(E entity) {
-		return service.create(entity);
-	}
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public E post(E entity) {
+//		return service.create(entity);
+//	}
 	
 	@PUT
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public E put(@PathParam("id") long id, E entity) {
 		return service.edit(id, entity);
 	}

@@ -15,8 +15,7 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 
 	@Transactional
 	public Collection<E> getAll() {
-		repository.getAllEntities();
-		return null;
+		return repository.getAllEntities();
 	}
 
 	@Transactional

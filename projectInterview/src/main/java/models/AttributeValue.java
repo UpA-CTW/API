@@ -1,8 +1,8 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_QUERY, query="SELECT v FROM AttributeValue v")
@@ -23,7 +23,7 @@ public class AttributeValue extends GenericEntity{
 	
 	private String value;
 	
-	@OneToMany
+	@ManyToOne
 	private Attribute attribute;
 	
 	

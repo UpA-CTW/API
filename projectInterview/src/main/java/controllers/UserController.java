@@ -7,21 +7,24 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import models.User;
 import models.DTOs.UserDTO;
+import repositories.UserRepository;
 import services.UserService;
 
-@Path("users")
-public class UserController extends UserService{
+@Path("user")
+public class UserController extends EntityController <UserService, UserRepository, User> {
 	
 	@Inject
 	 UserService  userService;
+	
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String create(UserDTO user) {
 		userService.createUser(user);
-		return "";
+		return "User Created";
 	}
 	
 	@POST

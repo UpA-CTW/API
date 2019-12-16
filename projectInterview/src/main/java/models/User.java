@@ -5,14 +5,14 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name=User.GET_ALL_USERS_QUERY_NAME , query="SELECT u FROM User u")
-@NamedQuery(name=User.GET_USER_BY_EMAIL_QUERY_NAME , query="SELECT u FROM User u WHERE u.email = :email")
+@NamedQuery(name=User.GET_USER_BY_NAME_QUERY_NAME , query="SELECT u FROM User u WHERE u.name = :name OR u.email = :name")
 
 public class User extends GenericEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static final String GET_ALL_USERS_QUERY_NAME = "User.getAllUser";
-	public static final String GET_USER_BY_EMAIL_QUERY_NAME  = "User.getUserByEmail";
+	public static final String GET_ALL_USERS_QUERY_NAME = "User.getAllUsers";
+	public static final String GET_USER_BY_NAME_QUERY_NAME  = "User.getUserByName";
 	
 
 	    private String name; 

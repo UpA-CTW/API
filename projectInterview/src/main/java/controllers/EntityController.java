@@ -4,8 +4,9 @@ import java.util.Collection;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.OPTIONS;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -50,8 +51,8 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 	@GET
 	@Path("name")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection <E> getOneByName(@QueryParam("name") String name) {
-		return service.getOneByName(name);
+	public Collection <E> getByName(@QueryParam("name") String name) {
+		return service.getByName(name);
 	}
 	
 //	@POST
@@ -61,7 +62,7 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 //		return service.create(entity);
 //	}
 	
-	@OPTIONS
+	@PUT
 	@Path("edit/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -70,7 +71,7 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 		return "Edited Successfully";
 	}
 	
-	@GET
+	@DELETE
 	@Path("delete/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String del(@PathParam("id") long id) {

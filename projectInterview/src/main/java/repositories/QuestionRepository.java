@@ -21,7 +21,7 @@ public class QuestionRepository extends EntityRepository<Question> {
 
 
 	@Override
-	public Collection <Question> getOneByName(String name) {
+	public Collection <Question> getByName(String name) {
 		return entityManager
 				.createNamedQuery(Question.GET_QUESTION_BY_NAME_QUERY_NAME, Question.class)
 				.setParameter("name", name)

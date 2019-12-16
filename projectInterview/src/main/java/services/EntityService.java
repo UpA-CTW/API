@@ -39,8 +39,8 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 	}
 
 	@Transactional
-	public Collection<E> getOneByName(String name) {
-		return repository.getOneByName(name);
+	public Collection<E> getByName(String name) {
+		return repository.getByName(name);
 	}
 
 }

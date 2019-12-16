@@ -25,7 +25,7 @@ public class AttributeValueRepository extends EntityRepository<AttributeValue> {
 	}
 
 	@Override
-	public Collection<AttributeValue> getOneByName(String name) {
+	public Collection<AttributeValue> getByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

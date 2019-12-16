@@ -37,7 +37,7 @@ public abstract class EntityRepository <T extends GenericEntity>{
 		entityManager.remove(entity);
 	}
 
-	public abstract Collection<T> getOneByName(String name);
+	public abstract Collection<T> getByName(String name);
 
 	
 	

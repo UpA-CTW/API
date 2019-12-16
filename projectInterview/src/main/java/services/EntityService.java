@@ -15,7 +15,7 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 
 	@Transactional
 	public Collection<E> getAll() {
-		return repository.getAllEntities();
+		return repository.getAll();
 	}
 
 	@Transactional
@@ -34,14 +34,13 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 	}
 
 	@Transactional
-	public String del(long id) {
+	public void del(long id) {
 		repository.removeEntity(id);
-		return null;
 	}
 
-	public E getOneByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public Collection<E> getOneByName(String name) {
+		return repository.getOneByName(name);
 	}
 
 }

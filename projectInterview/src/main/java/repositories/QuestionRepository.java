@@ -1,27 +1,32 @@
 package repositories;
 
 
+import java.util.Collection;
+
 import models.Question;
 
 public class QuestionRepository extends EntityRepository<Question> {
 	
-	
+
+
 	@Override
 	protected Class<Question> getEntityClass() {
 		return Question.class;
 	}
 	
 	@Override
-	protected  String getAllEntityQueryName() {
-		return Question.GET_ALL_QUESTIONS_QUERY;
+	protected  String getAllEntities() {
+		return Question.GET_ALL_QUESTIONS_QUERY_NAME;
 	}
+
 
 	@Override
-	protected String getAllEntityIdsQueryName() {
-		return Question.GET_ALL_QUESTIONS_ID_QUERY;
+	public Collection <Question> getOneByName(String name) {
+		return entityManager
+				.createNamedQuery(Question.GET_QUESTION_BY_NAME_QUERY_NAME, Question.class)
+				.setParameter("name", name)
+				.getResultList();
 	}
-
 	
-
 
 }

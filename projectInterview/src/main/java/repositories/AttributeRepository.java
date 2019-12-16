@@ -1,14 +1,11 @@
 package repositories;
 
+import java.util.Collection;
+
 import models.Attribute;
 
 
 public class AttributeRepository extends EntityRepository<Attribute> {
-
-	@Override
-	protected String getAllEntityIdsQueryName() {
-		return Attribute.GET_ALL_ATTRIBUTES_ID_QUERY;
-	}
 
 	@Override
 	protected Class<Attribute> getEntityClass() {
@@ -16,8 +13,14 @@ public class AttributeRepository extends EntityRepository<Attribute> {
 	}
 
 	@Override
-	protected String getAllEntityQueryName() {
-		return Attribute.GET_ALL_ATTRIBUTES_QUERY;
+	protected String getAllEntities() {
+		return Attribute.GET_ALL_ATTRIBUTES_QUERY_NAME;
+	}
+
+	@Override
+	public Collection <Attribute> getOneByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

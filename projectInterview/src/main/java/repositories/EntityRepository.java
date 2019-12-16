@@ -12,18 +12,16 @@ public abstract class EntityRepository <T extends GenericEntity>{
 	@PersistenceContext
 	protected EntityManager entityManager;
 	
-	protected abstract String getAllEntityIdsQueryName();
-	
 	protected abstract Class<T> getEntityClass();
 	
-	protected abstract String getAllEntityQueryName();
+	protected abstract String getAllEntities();
 	
 	public T createEntity(T entity) {
 		return entityManager.merge(entity);
 	}
 	
-	public Collection<T> getAllEntities() {
-		return entityManager.createNamedQuery(getAllEntityQueryName(),getEntityClass()).getResultList();
+	public Collection<T> getAll() {
+		return entityManager.createNamedQuery(getAllEntities(),getEntityClass()).getResultList();
 	}
 	
 	public T consultEntity(long id) {
@@ -38,6 +36,9 @@ public abstract class EntityRepository <T extends GenericEntity>{
 		T entity = entityManager.find(getEntityClass(), id);
 		entityManager.remove(entity);
 	}
+
+	public abstract Collection<T> getOneByName(String name);
+
 	
 	
 }

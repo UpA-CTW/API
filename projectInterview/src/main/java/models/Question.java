@@ -8,28 +8,33 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-@NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY, query="SELECT q FROM Question q")
-@NamedQuery(name=Question.GET_ALL_QUESTIONS_ID_QUERY, query="SELECT q.id FROM Question q")
-@NamedQuery(name=Question.GET_QUESTION_BY_NAME_QUERY, query="SELECT q FROM Question q WHERE q.question = :name")
+@NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY_NAME, query="SELECT q FROM Question q")
+@NamedQuery(name=Question.GET_QUESTION_BY_NAME_QUERY_NAME, query="SELECT q FROM Question q WHERE q.question = :name")
 
 public class Question extends GenericEntity {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static final String GET_ALL_QUESTIONS_QUERY = "Question.getAllEntity";
-	public static final String GET_ALL_QUESTIONS_ID_QUERY = "Question.getAllQuestionsId";
-	public static final String GET_QUESTION_BY_NAME_QUERY = "Question.getQuestionByName";
+	public static final String GET_ALL_QUESTIONS_QUERY_NAME = "Question.getAllEntity";
+	public static final String GET_QUESTION_BY_NAME_QUERY_NAME = "Question.getQuestionByName";
 
 	
 	@OneToMany
-	private Collection<Attribute> attributes;
+	private Collection<AttributeValue> attributes;
 	private String question;
 	private String answer;
 
 	public Question() {
 		
 	}
-	
+
+	public Collection<AttributeValue> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(Collection<AttributeValue> attributes) {
+		this.attributes = attributes;
+	}
 
 	public String getQuestion() {
 		return question;
@@ -46,5 +51,7 @@ public class Question extends GenericEntity {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	
+
 	
 }

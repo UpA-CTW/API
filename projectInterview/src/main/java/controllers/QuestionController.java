@@ -20,5 +20,7 @@ public class QuestionController extends EntityController <QuestionService, Quest
 		return service.create(question);
 	}
 	
+
+	
 	
 }

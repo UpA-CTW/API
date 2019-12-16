@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY_NAME, query="SELECT q FROM Question q")
-@NamedQuery(name=Question.GET_QUESTION_BY_NAME_QUERY_NAME, query="SELECT q FROM Question q WHERE q.question = :name")
+@NamedQuery(name=Question.GET_QUESTION_BY_NAME_QUERY_NAME, query="SELECT q FROM Question q WHERE q.question LIKE CONCAT('%', :name, '%')")
 
 public class Question extends GenericEntity {
 

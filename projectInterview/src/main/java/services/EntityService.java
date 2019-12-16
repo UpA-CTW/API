@@ -28,10 +28,7 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 		return repository.createEntity(entity);
 	}
 
-	@Transactional
-	public E edit(long id, E entity) {
-		return repository.editEntity(entity);
-	}
+	public abstract E edit(long id, E entity);
 
 	@Transactional
 	public void del(long id) {

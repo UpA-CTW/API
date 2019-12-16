@@ -41,6 +41,13 @@ public class UserService extends EntityService<UserRepository, User>  {
         //Adicionar entity ao repositório
         repository.createEntity(user);
     }
+    
+	@Override
+	@Transactional
+	public User edit(long id, User entity) {
+		
+			return repository.editEntity(entity);
+	}
 
     public void checkIfUserValid(UserDTO userDTO, String password) throws Exception {            
         //User valid if both username and password are valid
@@ -66,5 +73,6 @@ public class UserService extends EntityService<UserRepository, User>  {
         String[] result= {key, salt};
         return result;
     }
+
 }
 

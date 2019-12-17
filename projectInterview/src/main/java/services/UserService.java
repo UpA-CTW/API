@@ -23,7 +23,9 @@ public class UserService extends EntityService<UserRepository, User>  {
 
         String username=userDTO.getName();
         String email=userDTO.getEmail();
+        String role=userDTO.getRole();
 
+        
         User user=new User();
 
         //password->(hash, salt)
@@ -37,6 +39,7 @@ public class UserService extends EntityService<UserRepository, User>  {
         user.setHashcode(hashCode[0]);
         user.setSalt(hashCode[1]);
         user.setEmail(email);
+        user.setRole(role);
 
         //Adicionar entity ao repositório
         repository.createEntity(user);
@@ -45,8 +48,24 @@ public class UserService extends EntityService<UserRepository, User>  {
 	@Override
 	@Transactional
 	public User edit(long id, User entity) {
-		
-			return repository.editEntity(entity);
+		User user = repository.consultEntity(id);
+		entity.setId(id);
+		if(entity.getName() == null) {
+			entity.setName(user.getName());
+		}
+		if(entity.getEmail() == null) {
+			entity.setEmail(user.getEmail());
+		}
+		if(entity.getHashcode() == null) {
+			entity.setHashcode(user.getHashcode());	
+		}
+		if(entity.getSalt() == null) {
+			entity.setSalt(user.getSalt());
+		}
+		if(entity.getRole() == null) {
+			entity.setRole(user.getRole());
+		}
+		return repository.editEntity(entity);
 	}
 
     public void checkIfUserValid(UserDTO userDTO, String password) throws Exception {            

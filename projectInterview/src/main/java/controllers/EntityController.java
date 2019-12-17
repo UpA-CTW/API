@@ -63,7 +63,7 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 //	}
 	
 	@PUT
-	@Path("edit/{id}")
+	@Path("{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String put(@PathParam("id") long id, E entity) {
@@ -72,7 +72,7 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 	}
 	
 	@DELETE
-	@Path("delete/{id}")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String del(@PathParam("id") long id) {
 		service.del(id);

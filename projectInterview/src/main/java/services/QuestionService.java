@@ -18,7 +18,7 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 		if(entity.getAnswer() == null) {
 			entity.setAnswer(question.getAnswer());
 		}
-		if(entity.getAttributes().size() == 0) {
+		if(entity.getAttributes() == null) {
 			entity.setAttributes(question.getAttributes());
 		}
 		return repository.editEntity(entity);

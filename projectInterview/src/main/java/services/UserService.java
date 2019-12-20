@@ -14,7 +14,7 @@ public class UserService extends EntityService<UserRepository, User>  {
 
 
     @Transactional
-    public User findUserByEmail(String email) {
+    public User findUserByEmail(String email)throws Exception  {
         return repository.findUserByEmail(email);
     }
 

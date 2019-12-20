@@ -16,7 +16,7 @@ public class UserRepository extends EntityRepository<User>{
 		return User.GET_ALL_USERS_QUERY_NAME ;
 	}
 
-	public User findUserByEmail(String email) {
+	public User findUserByEmail(String email) throws Exception  {
 		return entityManager
 				.createNamedQuery(User.GET_USER_BY_NAME_QUERY_NAME, User.class)
 				.setParameter("email", email)

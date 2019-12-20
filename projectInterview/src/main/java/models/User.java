@@ -5,8 +5,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name=User.GET_ALL_USERS_QUERY_NAME , query="SELECT u FROM User u")
-@NamedQuery(name=User.GET_USER_BY_NAME_QUERY_NAME , query="SELECT u FROM User u WHERE u.name LIKE CONCAT('%', :name, '%') OR u.email LIKE CONCAT('%', :name, '%')")
-
+//@NamedQuery(name=User.GET_USER_BY_NAME_QUERY_NAME , query="SELECT u FROM User u WHERE u.name LIKE CONCAT('%', :name, '%') OR u.email LIKE CONCAT('%', :name, '%')")
+@NamedQuery(name=User.GET_USER_BY_NAME_QUERY_NAME , query="SELECT u FROM User u WHERE u.email LIKE CONCAT('%', :email, '%')")
 public class User extends GenericEntity {
 	
 	private static final long serialVersionUID = 1L;

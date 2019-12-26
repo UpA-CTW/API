@@ -35,9 +35,4 @@ public abstract class EntityService<T extends EntityRepository<E>, E extends Gen
 		repository.removeEntity(id);
 	}
 
-	@Transactional
-	public Collection<E> getByName(String name) {
-		return repository.getByName(name);
-	}
-
 }

@@ -16,21 +16,28 @@ public class UserRepository extends EntityRepository<User>{
 		return User.GET_ALL_USERS_QUERY_NAME ;
 	}
 
-	public User findUserByEmail(String email) throws Exception  {
+	public Collection<User> getByEmail(String email) throws Exception  {
 		return entityManager
-				.createNamedQuery(User.GET_USER_BY_NAME_QUERY_NAME, User.class)
+				.createNamedQuery(User.GET_USER_BY_EMAIL_QUERY_NAME, User.class)
+				.setParameter("email", email)
+				.getResultList();
+	}
+	
+	public User findUserByEmail(String email) {
+		return entityManager
+				.createNamedQuery(User.GET_USER_BY_EMAIL_QUERY_NAME, User.class)
 				.setParameter("email", email)
 				.getSingleResult();
 	}
 	
 	
-	@Override
-	public Collection<User> getByName(String name) {
-		return entityManager
-				.createNamedQuery(User.GET_USER_BY_NAME_QUERY_NAME , User.class)
-				.setParameter("name", name)
-				.getResultList();
-	}
+//	@Override
+//	public Collection<User> getByName(String name) {
+//		return entityManager
+//				.createNamedQuery(User.GET_USER_BY_NAME_QUERY_NAME , User.class)
+//				.setParameter("name", name)
+//				.getResultList();
+//	}
 
 
 	

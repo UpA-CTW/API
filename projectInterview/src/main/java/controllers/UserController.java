@@ -38,6 +38,7 @@ public class UserController extends EntityController <UserService, UserRepositor
 			userService.checkIfUserValid(user, user.getPassword());
 			return Response.ok().entity(account).build();
 		} catch (Exception e) {
+			e.printStackTrace();
 			return Response.status(Response.Status.UNAUTHORIZED).build();
 		}
 	}

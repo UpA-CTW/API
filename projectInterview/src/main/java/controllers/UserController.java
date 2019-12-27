@@ -1,10 +1,14 @@
 package controllers;
 
+import java.util.Collection;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -41,6 +45,13 @@ public class UserController extends EntityController <UserService, UserRepositor
 			e.printStackTrace();
 			return Response.status(Response.Status.UNAUTHORIZED).build();
 		}
+	}
+	
+	@GET
+	@Path("filter")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection <User> getByEmail(@QueryParam("email") String email) throws Exception {
+		return service.getByEmail(email);
 	}
 	
 

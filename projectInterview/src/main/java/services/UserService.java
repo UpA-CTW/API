@@ -1,5 +1,7 @@
 package services;
 
+import java.util.Collection;
+
 import javax.enterprise.context.RequestScoped;
 import javax.transaction.Transactional;
 import javax.ws.rs.BadRequestException;
@@ -17,6 +19,11 @@ public class UserService extends EntityService<UserRepository, User>  {
     public User findUserByEmail(String email)throws Exception  {
         return repository.findUserByEmail(email);
     }
+    
+	@Transactional
+	public Collection<User> getByEmail(String email) throws Exception {
+		return repository.getByEmail(email);
+	}
 
     @Transactional
     public void createUser(UserDTO userDTO) {

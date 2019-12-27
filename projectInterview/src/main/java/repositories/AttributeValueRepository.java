@@ -1,8 +1,4 @@
 package repositories;
-
-
-import java.util.Collection;
-
 import models.AttributeValue;
 
 public class AttributeValueRepository extends EntityRepository<AttributeValue> {
@@ -24,10 +20,10 @@ public class AttributeValueRepository extends EntityRepository<AttributeValue> {
 				.getSingleResult();
 	}
 
-	@Override
-	public Collection<AttributeValue> getByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public Collection<AttributeValue> getByName(String name) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

@@ -1,4 +1,6 @@
 package repositories;
+import java.util.Collection;
+
 import models.AttributeValue;
 
 public class AttributeValueRepository extends EntityRepository<AttributeValue> {
@@ -13,17 +15,11 @@ public class AttributeValueRepository extends EntityRepository<AttributeValue> {
 		return AttributeValue.GET_ALL_ATTRIBUTEVALUES_QUERY_NAME;
 	}
 	
-	public AttributeValue getValueByAttribute(String attribute) {
+	public Collection<AttributeValue> getValueByAttribute(String attribute) {
 		return entityManager
-				.createNamedQuery(AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY, AttributeValue.class)
+				.createNamedQuery(AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME, AttributeValue.class)
 				.setParameter("attribute", attribute)
-				.getSingleResult();
+				.getResultList();
 	}
-
-//	@Override
-//	public Collection<AttributeValue> getByName(String name) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 }

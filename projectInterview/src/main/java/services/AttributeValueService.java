@@ -1,5 +1,7 @@
 package services;
 
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import models.AttributeValue;
@@ -19,6 +21,10 @@ public class AttributeValueService extends EntityService <AttributeValueReposito
 				entity.setAttribute(attributevalue.getAttribute());
 			}
 		return repository.editEntity(entity);
+	}
+
+	public Collection<AttributeValue> getByAttribute(String attribute) {
+		return repository.getValueByAttribute(attribute);
 	}
 
 }

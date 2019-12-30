@@ -6,7 +6,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUES_QUERY_NAME, query="SELECT v FROM AttributeValue v")
-@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME, query="SELECT v FROM AttributeValue v WHERE v.attribute.type = :attribute")
+@NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME, query="SELECT v FROM AttributeValue v WHERE v.attribute.category = :attribute")
 public class AttributeValue extends GenericEntity{
 	
 	

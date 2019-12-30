@@ -12,8 +12,8 @@ public class AttributeService extends EntityService<AttributeRepository, Attribu
 	public Attribute edit(long id, Attribute entity) {
 		Attribute attribute = repository.consultEntity(id);
 		entity.setId(id);
-		if(entity.getType() == null) {
-			entity.setType(attribute.getType());
+		if(entity.getCategory() == null) {
+			entity.setCategory(attribute.getCategory());
 		}
 		return repository.editEntity(entity);
 	}

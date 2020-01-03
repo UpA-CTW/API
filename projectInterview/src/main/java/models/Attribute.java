@@ -14,23 +14,21 @@ public class Attribute extends GenericEntity {
 	public static final String GET_ALL_ATTRIBUTES_QUERY_NAME = "Attribute.getAllAttributes";
 	
 
-	private String type;
+	private String category;
 
 	public Attribute() {
 		
 	}
-	
-	public Attribute(String type) {
-		this.type = type;
+
+	public String getCategory() {
+		return category;
 	}
 
-	public String getType() {
-		return type;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
+
 
 	
 	

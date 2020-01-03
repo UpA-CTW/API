@@ -1,5 +1,7 @@
 package repositories;
 
+import java.util.Collection;
+
 import models.Question;
 
 public class QuestionRepository extends EntityRepository<Question> {
@@ -14,6 +16,13 @@ public class QuestionRepository extends EntityRepository<Question> {
 	@Override
 	protected  String getAllEntities() {
 		return Question.GET_ALL_QUESTIONS_QUERY_NAME;
+	}
+
+	public Collection<Question> getByValue(String value) {
+		return entityManager
+				.createNamedQuery(Question.GET_QUESTION_BY_VALUE_QUERY_NAME, Question.class)
+				.setParameter("value", value)
+				.getResultList();
 	}
 
 

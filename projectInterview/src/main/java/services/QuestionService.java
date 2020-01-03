@@ -1,5 +1,7 @@
 package services;
 
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import models.Question;
@@ -22,6 +24,10 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 			entity.setAttributes(question.getAttributes());
 		}
 		return repository.editEntity(entity);
+	}
+
+	public Collection<Question> getByValue(String value) {
+		return repository.getByValue(value);
 	}
 
 }

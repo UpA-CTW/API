@@ -54,14 +54,14 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 //		return service.create(entity);
 //	}
 	
-	@PUT
-	@Path("{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public String put(@PathParam("id") long id, E entity) {
-		service.edit(id, entity);
-		return "Edited Successfully";
-	}
+//	@PUT
+//	@Path("{id}")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String put(@PathParam("id") long id, E entity) {
+//		service.edit(id, entity);
+//		return "Edited Successfully";
+//	}
 	
 	@DELETE
 	@Path("{id}")

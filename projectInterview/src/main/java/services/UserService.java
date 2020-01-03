@@ -28,26 +28,8 @@ public class UserService extends EntityService<UserRepository, User>  {
     @Transactional
     public void createUser(UserDTO userDTO) {
 
-        String username=userDTO.getName();
-        String email=userDTO.getEmail();
-        String role=userDTO.getRole();
-
-        
-        User user=new User();
-
-        //password->(hash, salt)
-        String password = userDTO.getPassword();
-
-
-        String[] hashCode=passwordToHashcode(password);
-
-        //set fields to Entity
-        user.setName(username); 
-        user.setHashcode(hashCode[0]);
-        user.setSalt(hashCode[1]);
-        user.setEmail(email);
-        user.setRole(role);
-
+       
+    	User user= userDTOToUser(userDTO);
         //Adicionar entity ao repositório
         repository.createEntity(user);
     }
@@ -87,6 +69,29 @@ public class UserService extends EntityService<UserRepository, User>  {
 
         if(!PasswordUtils.verifyPassword(password, key, salt))
             throw new BadRequestException("Invalid Password");
+    }
+    
+    public User userDTOToUser(UserDTO userDTO) {
+    	 String username=userDTO.getName();
+         String email=userDTO.getEmail();
+         String role=userDTO.getRole();
+
+         
+         User user=new User();
+
+         //password->(hash, salt)
+         String password = userDTO.getPassword();
+
+
+         String[] hashCode=passwordToHashcode(password);
+
+         //set fields to Entity
+         user.setName(username); 
+         user.setHashcode(hashCode[0]);
+         user.setSalt(hashCode[1]);
+         user.setEmail(email);
+         user.setRole(role);
+         return user;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

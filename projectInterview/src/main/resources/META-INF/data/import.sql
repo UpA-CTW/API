@@ -1,1 +1,1 @@
-INSERT INTO User(name, email, hashcode, salt, role) VALUES ('admin', 'admin', 'MpJccCNc', 'JEPxo6+onnzDx+4AABLSLLrzDRNgXqmyo+DU39CBXVLtQhlhLfqlLQ6/F867AQyMZRQ=', 'Admin')
+INSERT INTO User(name, email, hashcode, salt, role) VALUES ('admin', 'admin@ctq.com', 'T5uR6Aq0' , 'cou23GZrUUIrqAOr272WHdOMHyzcQOPXQh+3yub8RD6LVzI3V+aEk2/h0AtaRhSBQfU=', 'Admin')

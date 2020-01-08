@@ -2,6 +2,7 @@ package services;
 
 import java.util.Collection;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import models.AttributeValue;
@@ -9,6 +10,9 @@ import repositories.AttributeValueRepository;
 
 public class AttributeValueService extends EntityService <AttributeValueRepository, AttributeValue> {
 
+	@Inject
+	 protected QuestionService questionService;
+	
 	@Override
 	@Transactional
 	public AttributeValue edit(long id, AttributeValue entity) {
@@ -25,6 +29,13 @@ public class AttributeValueService extends EntityService <AttributeValueReposito
 
 	public Collection<AttributeValue> getByAttribute(String attribute) {
 		return repository.getValueByAttribute(attribute);
+	}
+	
+	@Override
+	@Transactional
+	public void del(long id) {
+		questionService.removeAttribute(id);
+		repository.removeEntity(id);
 	}
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY_NAME, query="SELECT q FROM Question q")
-@NamedQuery(name=Question.GET_QUESTION_BY_VALUE_QUERY_NAME, query="SELECT q FROM Question q WHERE q  = :value")
+@NamedQuery(name=Question.GET_QUESTION_BY_VALUE_QUERY_NAME, query="UPDATE Question q SET q.attributes = null WHERE q.attributes.id = :id")
 
 public class Question extends GenericEntity {
 

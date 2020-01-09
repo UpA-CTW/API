@@ -27,9 +27,9 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 		return repository.editEntity(entity);
 	}
 
-//	public Collection<Question> getByValue(String value) {
-//		return repository.getByValue(value);
-//	}
+	public Collection<Question> getByValue(String value) {
+		return repository.getByValue(value);
+	}
 
 	@Transactional
 	public void removeAttribute(long id) {

@@ -33,16 +33,16 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 
 	@Transactional
 	public void removeAttribute(long id) {
-		Collection<Question> questions = repository.getAll();
-		for(Question question : questions) {
-			for(AttributeValue attributeValue : question.getAttributes()) {
-				if (attributeValue.getId() == id) {
-					//question.getAttributes().remove(attributeValue);
-					repository.editEntity(question);
-				}
-			}
-		}
-		//repository.removeAttributes(id);
+//		Collection<Question> questions = repository.getAll();
+//		for(Question question : questions) {
+//			for(AttributeValue attributeValue : question.getAttributes()) {
+//				if (attributeValue.getId() == id) {
+//					//question.getAttributes().remove(attributeValue);
+//					repository.editEntity(question);
+//				}
+//			}
+//		}
+		repository.removeAttributes(id);
 	}
 
 }

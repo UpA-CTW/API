@@ -26,10 +26,10 @@ public class QuestionRepository extends EntityRepository<Question> {
 	}
 
 	public void removeAttributes(long id) {
-//		entityManager
-//		.createNamedQuery(Question.UPDATE_QUESTION_ATTRIBUTEVALUES_QUERY_NAME, Question.class)
-//		.setParameter("id", id)
-//		.executeUpdate();
+		entityManager
+		.createNamedQuery(Question.UPDATE_QUESTION_ATTRIBUTEVALUES_QUERY_NAME)
+		.setParameter("id", id)
+		.executeUpdate();
 	}
 
 

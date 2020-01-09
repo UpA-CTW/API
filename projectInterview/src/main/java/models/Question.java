@@ -17,6 +17,7 @@ public class Question extends GenericEntity {
 	
 	public static final String GET_ALL_QUESTIONS_QUERY_NAME = "Question.getAllEntity";
 	public static final String GET_QUESTION_BY_VALUE_QUERY_NAME = "Question.getQuestionByName";
+	//public static final String UPDATE_QUESTION_ATTRIBUTEVALUES_QUERY_NAME = "Question.updateAttributes";;
 
 	
 	@OneToMany

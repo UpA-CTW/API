@@ -7,6 +7,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUES_QUERY_NAME, query="SELECT v FROM AttributeValue v")
 @NamedQuery(name=AttributeValue.GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME, query="SELECT v FROM AttributeValue v WHERE v.attribute.category = :attribute")
+@NamedQuery(name=AttributeValue.DELETE_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME, query="DELETE FROM AttributeValue v WHERE v.attribute.id = :id")
 public class AttributeValue extends GenericEntity{
 	
 	
@@ -14,6 +15,7 @@ public class AttributeValue extends GenericEntity{
 	
 	public static final String GET_ALL_ATTRIBUTEVALUES_QUERY_NAME = "AtributeValue.getAllAttributeValues";	
 	public static final String GET_ALL_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME = "AttributeValue.getValueByAttribute";
+	public static final String DELETE_ATTRIBUTEVALUE_BY_ATTRIBUTE_QUERY_NAME = "AttributeValue.DeleteValuesByAttribute";
 	
 	
 	@ManyToOne

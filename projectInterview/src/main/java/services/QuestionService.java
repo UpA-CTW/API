@@ -31,8 +31,8 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 		return repository.getByValue(value);
 	}
 
-	@Transactional
-	public void removeAttribute(long id) {
+//	@Transactional
+//	public void removeAttribute(long id) {
 //		Collection<Question> questions = repository.getAll();
 //		for(Question question : questions) {
 //			for(AttributeValue attributeValue : question.getAttributes()) {
@@ -42,7 +42,7 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 //				}
 //			}
 //		}
-		repository.removeAttributes(id);
-	}
+//		repository.removeAttributes(id);
+//	}
 
 }

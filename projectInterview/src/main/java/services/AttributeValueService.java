@@ -37,6 +37,7 @@ public class AttributeValueService extends EntityService<AttributeValueRepositor
 	}
 
 	@Override
+	@Transactional
 	public void del(long id) {
 		try {
 			repository.removeEntity(id);

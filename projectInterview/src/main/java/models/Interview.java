@@ -24,8 +24,7 @@ public class Interview extends GenericEntity{
 	private String candidate;
 	@ManyToOne
 	private User user;
-	private String[] evaluations;
-	private int finalEvaluation;
+	private float finalEvaluation;
 	
 	
 	public Interview() {
@@ -64,21 +63,16 @@ public class Interview extends GenericEntity{
 		this.user = user;
 	}
 
-	public String[] getEvaluations() {
-		return evaluations;
-	}
-
-	public void setEvaluations(String[] evaluations) {
-		this.evaluations = evaluations;
-	}
-
-	public int getFinalEvaluation() {
+	public float getFinalEvaluation() {
 		return finalEvaluation;
 	}
 
-	public void setFinalEvaluation(int finalEvaluation) {
+	public void setFinalEvaluation(float finalEvaluation) {
 		this.finalEvaluation = finalEvaluation;
 	}
+
+
+	
 
 	
 }

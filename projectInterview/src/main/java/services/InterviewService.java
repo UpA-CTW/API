@@ -26,10 +26,7 @@ public class InterviewService extends EntityService<InterviewRepository, Intervi
 		if(entity.getCandidate() == null) {
 			entity.setCandidate(interview.getCandidate());
 		}
-		if(entity.getEvaluations() == null) {
-			entity.setEvaluations(interview.getEvaluations());
-		}
-		
+				
 		entity.setFinalEvaluation(interview.getFinalEvaluation());
 		
 		

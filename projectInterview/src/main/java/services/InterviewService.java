@@ -30,6 +30,9 @@ public class InterviewService extends EntityService<InterviewRepository, Intervi
 			entity.setEvaluations(interview.getEvaluations());
 		}
 		
+		entity.setFinalEvaluation(interview.getFinalEvaluation());
+		
+		
 		return repository.editEntity(entity);
 	}
 	

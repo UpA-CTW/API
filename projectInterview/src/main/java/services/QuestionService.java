@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
+import models.AttributeValue;
 import models.Question;
 import repositories.QuestionRepository;
 
@@ -29,5 +30,19 @@ public class QuestionService extends EntityService<QuestionRepository, Question>
 	public Collection<Question> getByValue(String value) {
 		return repository.getByValue(value);
 	}
+
+//	@Transactional
+//	public void removeAttribute(long id) {
+//		Collection<Question> questions = repository.getAll();
+//		for(Question question : questions) {
+//			for(AttributeValue attributeValue : question.getAttributes()) {
+//				if (attributeValue.getId() == id) {
+//					//question.getAttributes().remove(attributeValue);
+//					repository.editEntity(question);
+//				}
+//			}
+//		}
+//		repository.removeAttributes(id);
+//	}
 
 }

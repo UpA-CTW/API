@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import models.GenericEntity;
@@ -64,9 +65,14 @@ public abstract class EntityController <T extends EntityService<R,E>, R extends 
 	@DELETE
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String del(@PathParam("id") long id) {
-		service.del(id);
-		return "Removed Successfully";
+	public Response del(@PathParam("id") long id) {
+		try {
+			service.del(id);
+			return Response.ok("Removed Successfully").build();
+		} catch(Exception e) {
+			return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
+		}
+		
 	}
 	
 }

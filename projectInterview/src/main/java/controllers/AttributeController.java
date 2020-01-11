@@ -9,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import models.Attribute;
-import models.AttributeValue;
 import repositories.AttributeRepository;
 import services.AttributeService;
 

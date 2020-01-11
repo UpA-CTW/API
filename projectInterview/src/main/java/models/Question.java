@@ -9,14 +9,15 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name=Question.GET_ALL_QUESTIONS_QUERY_NAME, query="SELECT q FROM Question q")
-@NamedQuery(name=Question.GET_QUESTION_BY_VALUE_QUERY_NAME, query="SELECT q FROM Question q WHERE q  = :value")
-
+//@NamedQuery(name=Question.GET_QUESTION_BY_VALUE_QUERY_NAME, query="UPDATE Question q SET q.attributes.id = 0 WHERE q.attributes.id = :id")
+@NamedQuery(name=Question.GET_QUESTION_BY_VALUE_QUERY_NAME, query="SELECT q FROM Question q")
 public class Question extends GenericEntity {
 
 	private static final long serialVersionUID = 1L;
 	
 	public static final String GET_ALL_QUESTIONS_QUERY_NAME = "Question.getAllEntity";
 	public static final String GET_QUESTION_BY_VALUE_QUERY_NAME = "Question.getQuestionByName";
+	//public static final String UPDATE_QUESTION_ATTRIBUTEVALUES_QUERY_NAME = "Question.updateAttributes";;
 
 	
 	@OneToMany

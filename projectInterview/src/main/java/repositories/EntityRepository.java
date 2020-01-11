@@ -36,6 +36,7 @@ public abstract class EntityRepository <T extends GenericEntity>{
 		T entity = entityManager.find(getEntityClass(), id);
 		entityManager.remove(entity);
 	}
+	
 
 	//public abstract Collection<T> findUserByEmail(String name) throws Exception;
 

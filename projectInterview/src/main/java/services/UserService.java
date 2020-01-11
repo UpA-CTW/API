@@ -39,8 +39,11 @@ public class UserService extends EntityService<UserRepository, User>  {
 	public User edit(long id, User entity) {
 		User user = repository.consultEntity(id);
 		entity.setId(id);
-		if(entity.getName() == null) {
-			entity.setName(user.getName());
+		if(entity.getFirstName() == null) {
+			entity.setFirstName(user.getFirstName());
+		}
+		if(entity.getLastName() == null) {
+			entity.setLastName(user.getLastName());
 		}
 		if(entity.getEmail() == null) {
 			entity.setEmail(user.getEmail());
@@ -72,7 +75,8 @@ public class UserService extends EntityService<UserRepository, User>  {
     }
     
     public User userDTOToUser(UserDTO userDTO) {
-    	 String username=userDTO.getName();
+    	 String userFirstName=userDTO.getFirstName();
+    	 String userLastName=userDTO.getLastName();
          String email=userDTO.getEmail();
          String role=userDTO.getRole();
 
@@ -86,7 +90,8 @@ public class UserService extends EntityService<UserRepository, User>  {
          String[] hashCode=passwordToHashcode(password);
 
          //set fields to Entity
-         user.setName(username); 
+         user.setFirstName(userFirstName);
+         user.setLastName(userLastName);
          user.setHashcode(hashCode[0]);
          user.setSalt(hashCode[1]);
          user.setEmail(email);
